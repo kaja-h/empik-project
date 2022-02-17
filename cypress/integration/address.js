@@ -3,7 +3,7 @@ describe('Address', () => {
         cy.visit('https://www.empik.com/')
     })
 
-    it('log in and check order history', () => {
+    it('log in and select empik store', () => {
         cy.get('.empikNav__user > .empikNav__userLink.userMenu')
             .click()
         cy.get('input#user-email')
