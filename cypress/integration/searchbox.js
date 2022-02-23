@@ -4,7 +4,7 @@ describe('Searchbox', () => {
     })
 
     it('search harry potter', () => {
-        cy.get('.css-1vl1nnj-input-input-1')
+        cy.get('.main-search__container')
             .click()
             .type('harry')
         cy.get('.ta-search-field-ac')
