@@ -17,7 +17,7 @@ describe('Address', () => {
         cy.get('.show .e-btn--primary')
             .click()
         cy.get('.empikNav__user > .empikNav__userLink.userMenu')
-            .click()
+            .click({waitForAnimations: false})
         cy.url().should('include', '/twoje-konto')
         cy.get('a[title=\'Adresy\']')
             .click()
