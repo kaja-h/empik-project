@@ -4,16 +4,23 @@ describe('Address', () => {
     })
 
     it('log in and select empik store', () => {
+        const username = Cypress.env('username')
+        const password = Cypress.env('password')
+        
         cy.get('.empikNav__user > .empikNav__userLink.userMenu')
             .click()
         cy.get('input#user-email')
-            .type('xitofe3408@chatich.com')
-            .should('have.value', 'xitofe3408@chatich.com')
+            .type(username)
+            .should('have.value', username)
         cy.get('.show .e-btn--primary')
             .click()
         cy.get('input#user-password')
-            .type('Pzt9r!KuUSq!tBE!fSWAH$MT%')
-            .should('have.value', 'Pzt9r!KuUSq!tBE!fSWAH$MT%')
+            .type(password, { log: false })
+            .should(el$ => {
+                if (el$.val() !== password) {
+                  throw new Error('Different value of typed password')
+                }
+              })
         cy.get('.show .e-btn--primary')
             .click()
         cy.get('.empikNav__user > .empikNav__userLink.userMenu')
